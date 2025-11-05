@@ -1,5 +1,6 @@
-import { StyleProp, ViewStyle } from 'react-native'
+import { StyleProp, ViewProps, ViewStyle } from 'react-native'
 
-export type ThemedViewProps = {
+export type ThemedViewProps = ViewProps & {
     style?: StyleProp<ViewStyle>
+
 }
