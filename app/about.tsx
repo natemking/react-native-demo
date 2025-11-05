@@ -1,5 +1,5 @@
 import { StyleSheet, Text, useColorScheme, View } from 'react-native';
-import { Link } from 'expo-router'
+import { Link } from 'expo-router';
 import { colors } from 'styles/colors';
 
 const styles = StyleSheet.create({
@@ -12,28 +12,27 @@ const styles = StyleSheet.create({
 		fontWeight: '700',
 		fontSize: 18,
 	},
-    link: {
-        marginVertical: 10,
-        borderBottomWidth: 1
-    }
+	link: {
+		marginVertical: 10,
+		borderBottomWidth: 1,
+	},
 });
 
 const AboutPage = () => {
-    const colorScheme = useColorScheme();
-    const theme = colors[colorScheme ?? 'light']
-    const { background  } = theme;
-    const { container, link, title } = styles;
-
+	const colorScheme = useColorScheme();
+	const theme = colors[colorScheme ?? 'light'];
+	const { background } = theme;
+	const { container, link, title } = styles;
 
 	return (
-		<View style={[container, {backgroundColor: background }]}>
+		<View style={[container, { backgroundColor: background }]}>
 			<Text style={title}>About Page</Text>
 
-            <Link href='/' style={link}>Back Home</Link>
+			<Link href='/' style={link}>
+				Back Home
+			</Link>
 		</View>
 	);
 };
 
 export default AboutPage;
-
-
