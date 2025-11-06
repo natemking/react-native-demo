@@ -2,6 +2,7 @@ import { StyleSheet, Text, Image } from 'react-native';
 import { Link } from 'expo-router';
 import { ThemedView } from 'components/ThemedView';
 import { ThemedLogo } from 'components/ThemedLogo';
+import { Spacer } from 'components/Spacer';
 
 const styles = StyleSheet.create({
 	container: {
@@ -29,9 +30,10 @@ const HomePage = (): React.JSX.Element => {
 			<ThemedLogo style={img} />
 
 			<Text style={title}>The Number 1</Text>
-			<Text style={{ marginTop: 10, marginBottom: 30 }}>
-				Reading List App
-			</Text>
+
+            <Spacer height={10} />
+			<Text>Reading List App</Text>
+            <Spacer />
 
 			<Link href='/about' style={link}>
 				About Page
