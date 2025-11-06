@@ -1,8 +1,10 @@
-import { ImageProps, StyleProp, ViewProps, ViewStyle } from 'react-native'
+import { DimensionValue, ImageProps, StyleProp, ViewProps, ViewStyle } from 'react-native'
 
-export type ThemedViewProps = ViewProps & {
-    style?: StyleProp<ViewStyle>
+export type ThemedViewProps = ViewProps
 
+export type ThemedLogoProps = ImageProps;
+
+export type SpacerProps = ViewProps & {
+    width?: DimensionValue;
+    height?: DimensionValue;
 }
-
-export type ThemedLogoProps = ImageProps
