@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import type { ThemedViewProps } from 'types';
+import type { ThemedCardProps, ThemedViewProps } from 'types';
 import { useTheme } from 'hooks';
 
 const styles = StyleSheet.create({
@@ -10,9 +10,10 @@ const styles = StyleSheet.create({
 });
 
 export const ThemedCard = ({
+	children,
 	style,
 	...props
-}: ThemedViewProps): React.JSX.Element => {
+}: ThemedCardProps): React.JSX.Element => {
 	const theme = useTheme();
 
 	const { uiBackground } = theme;
@@ -22,6 +23,8 @@ export const ThemedCard = ({
 		<View
 			style={[{ borderBlockColor: uiBackground }, card, style]}
 			{...props}
-		/>
+		>
+			{children}
+		</View>
 	);
 };

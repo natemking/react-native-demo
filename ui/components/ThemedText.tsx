@@ -3,6 +3,7 @@ import { useTheme } from 'hooks';
 import type { ThemedTextProps } from 'types';
 
 export const ThemedText = ({
+	children,
 	style,
 	isTitle = false,
 	...props
@@ -12,5 +13,9 @@ export const ThemedText = ({
 
 	const textColor = isTitle ? title : text;
 
-	return <Text style={[{ color: textColor }, style]} {...props} />;
+	return (
+		<Text style={[{ color: textColor }, style]} {...props}>
+			{children}
+		</Text>
+	);
 };

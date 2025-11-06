@@ -8,9 +8,11 @@ import type {
 	ViewStyle,
 } from 'react-native';
 
-type CompositionalComponent = {children: React.ReactNode}
+type CompositionalComponent = { children: React.ReactNode };
 
 export type ThemedViewProps = ViewProps;
+
+export type ThemedCardProps = ViewProps & CompositionalComponent;
 
 export type ThemedLogoProps = ImageProps;
 
@@ -20,6 +22,6 @@ export type SpacerProps = {
 	height?: DimensionValue;
 };
 
-export type ThemedTextProps = TextProps & { isTitle?: boolean };
+export type ThemedTextProps = TextProps & CompositionalComponent & { isTitle?: boolean };
 
-export type ThemedBtnProps = PressableProps & CompositionalComponent
+export type ThemedBtnProps = PressableProps & CompositionalComponent;
