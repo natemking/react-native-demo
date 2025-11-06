@@ -26,7 +26,7 @@ const HomePage = () => {
 	const { container, img, link, title } = styles;
 	return (
 		<ThemedView style={container}>
-			<ThemedLogo />
+			<ThemedLogo style={img} />
 
 			<Text style={title}>The Number 1</Text>
 			<Text style={{ marginTop: 10, marginBottom: 30 }}>
