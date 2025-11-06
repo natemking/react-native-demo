@@ -1,8 +1,9 @@
 import { StyleSheet, Text, Image } from 'react-native';
 import { Link } from 'expo-router';
-import { ThemedView } from 'components/ThemedView';
-import { ThemedLogo } from 'components/ThemedLogo';
 import { Spacer } from 'components/Spacer';
+import { ThemedLogo } from 'components/ThemedLogo';
+import { ThemedText } from 'components/ThemedText';
+import { ThemedView } from 'components/ThemedView';
 
 const styles = StyleSheet.create({
 	container: {
@@ -14,9 +15,6 @@ const styles = StyleSheet.create({
 		fontWeight: '700',
 		fontSize: 18,
 	},
-	img: {
-		marginVertical: 20,
-	},
 	link: {
 		marginVertical: 10,
 		borderBottomWidth: 1,
@@ -24,22 +22,25 @@ const styles = StyleSheet.create({
 });
 
 const HomePage = (): React.JSX.Element => {
-	const { container, img, link, title } = styles;
+	const { container, link, title } = styles;
 	return (
 		<ThemedView style={container}>
-			<ThemedLogo style={img} />
+			<ThemedLogo />
+			<Spacer height={20} />
 
-			<Text style={title}>The Number 1</Text>
+			<ThemedText style={title} isTitle>
+				The Number 1
+			</ThemedText>
 
-            <Spacer height={10} />
-			<Text>Reading List App</Text>
-            <Spacer />
+			<Spacer height={10} />
+			<ThemedText>Reading List App</ThemedText>
+			<Spacer />
 
 			<Link href='/about' style={link}>
-				About Page
+				<ThemedText>About Page</ThemedText>
 			</Link>
 			<Link href='/contact' style={link}>
-				Contact Page
+				<ThemedText>Contact Page</ThemedText>
 			</Link>
 		</ThemedView>
 	);

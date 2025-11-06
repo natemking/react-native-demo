@@ -1,6 +1,7 @@
-import { StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
-import { colors } from 'styles/colors';
+import { ThemedView } from 'components/ThemedView';
+import { ThemedText } from 'components/ThemedText';
 
 const styles = StyleSheet.create({
 	container: {
@@ -19,19 +20,16 @@ const styles = StyleSheet.create({
 });
 
 const AboutPage = (): React.JSX.Element => {
-	const colorScheme = useColorScheme();
-	const theme = colors[colorScheme ?? 'light'];
-	const { background } = theme;
 	const { container, link, title } = styles;
 
 	return (
-		<View style={[container, { backgroundColor: background }]}>
-			<Text style={title}>About Page</Text>
+		<ThemedView style={container}>
+			<ThemedText style={title} isTitle>About Page</ThemedText>
 
 			<Link href='/' style={link}>
-				Back Home
+				<ThemedText>Back Home</ThemedText>
 			</Link>
-		</View>
+		</ThemedView>
 	);
 };
 
