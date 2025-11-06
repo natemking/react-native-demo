@@ -5,6 +5,7 @@ import { ThemedBtn } from 'components/ThemedBtn';
 import { ThemedText } from 'components/ThemedText';
 import { ThemedView } from 'components/ThemedView';
 import { registerUrl } from 'lib/constants';
+import { colors } from 'styles/colors';
 
 const styles = StyleSheet.create({
 	container: {
@@ -36,7 +37,7 @@ export default function LoginPage(): React.JSX.Element {
 			<ThemedBtn 
                 onPress={handleSubmit}
             >
-				<Text style={{ color: 'hsl(0 0% 95%)' }}>
+				<Text style={{ color: colors.primaryForeground }}>
                     Login
                 </Text>
 			</ThemedBtn>

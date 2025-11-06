@@ -5,6 +5,7 @@ import { ThemedView } from 'components/ThemedView';
 import { ThemedText } from 'components/ThemedText';
 import { loginUrl } from 'lib/constants';
 import { ThemedBtn } from 'components/ThemedBtn';
+import { colors } from 'styles/colors';
 
 const styles = StyleSheet.create({
 	container: {
@@ -33,7 +34,7 @@ export default function RegisterPage(): React.JSX.Element {
 				Register for an Account
 			</ThemedText>
 			<ThemedBtn onPress={handleSubmit}>
-				<Text style={{ color: 'hsl(0 0% 95%)' }}>Register</Text>
+				<Text style={{ color: colors.primaryForeground }}>Register</Text>
 			</ThemedBtn>
 			<Spacer height={100} />
 			<Link href={loginUrl}>
