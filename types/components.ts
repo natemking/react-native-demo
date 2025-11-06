@@ -17,4 +17,4 @@ export type SpacerProps = {
 	height?: DimensionValue;
 };
 
-export type ThemedTextProps = TextProps & { title?: boolean };
+export type ThemedTextProps = TextProps & { isTitle?: boolean };
