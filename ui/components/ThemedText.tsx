@@ -6,7 +6,7 @@ export const ThemedText = ({
 	style,
 	isTitle = false,
 	...props
-}: ThemedTextProps) => {
+}: ThemedTextProps): React.JSX.Element => {
 	const theme = useTheme();
 	const { text, title } = theme;
 
