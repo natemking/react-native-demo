@@ -1,13 +1,8 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import type { ThemedCardProps, ThemedViewProps } from 'types';
 import { useTheme } from 'hooks';
+import { globalStyles } from 'styles';
 
-const styles = StyleSheet.create({
-	card: {
-		borderRadius: 5,
-		padding: 20,
-	},
-});
 
 export const ThemedCard = ({
 	children,
@@ -17,7 +12,7 @@ export const ThemedCard = ({
 	const theme = useTheme();
 
 	const { uiBackground } = theme;
-	const { card } = styles;
+	const { card } = globalStyles
 
 	return (
 		<View

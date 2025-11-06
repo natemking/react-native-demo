@@ -1,26 +1,13 @@
 import { Spacer } from 'components/Spacer';
 import { ThemedText } from 'components/ThemedText';
 import { ThemedView } from 'components/ThemedView';
-import { StyleSheet, Text, View } from 'react-native';
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'stretch',
-	},
-	heading: {
-		fontWeight: 'bold',
-		fontSize: 18,
-		textAlign: 'center',
-	},
-});
+import { globalStyles } from 'styles';
 
 export default function BooksPage() {
-	const { container, heading } = styles;
-    
+	const { container, heading } = globalStyles;
+
 	return (
-		<ThemedView style={container}>
+		<ThemedView style={[container, { alignItems: 'stretch' }]}>
 			<Spacer />
 			<ThemedText isTitle style={heading}>
 				Your Reading List

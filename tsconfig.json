@@ -6,7 +6,7 @@
 		"paths": {
 			"assets/*": ["assets/*"],
 			"img/*": ["assets/img/*"],
-			"styles/*": ["ui/styles/*"],
+			"styles": ["ui/styles"],
 			"components/*": ["ui/components/*"],
             "types": ["types"],
             "hooks": ["lib/hooks"]
