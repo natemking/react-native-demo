@@ -18,11 +18,6 @@ const RootLayout = (): React.JSX.Element => {
 				}}
 			>
 				<Stack.Screen name='index' options={{ title: 'Home' }} />
-				<Stack.Screen name='about' options={{ title: 'About Page' }} />
-				<Stack.Screen
-					name='contact'
-					options={{ title: 'Contact Page' }}
-				/>
 			</Stack>
 		</>
 	);

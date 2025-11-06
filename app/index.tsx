@@ -4,7 +4,7 @@ import { Spacer } from 'components/Spacer';
 import { ThemedLogo } from 'components/ThemedLogo';
 import { ThemedText } from 'components/ThemedText';
 import { ThemedView } from 'components/ThemedView';
-import { aboutUrl, contactUrl } from 'lib/constants';
+import { loginUrl, registerUrl } from 'lib/constants';
 
 const styles = StyleSheet.create({
 	container: {
@@ -37,11 +37,11 @@ const HomePage = (): React.JSX.Element => {
 			<ThemedText>Reading List App</ThemedText>
 			<Spacer />
 
-			<Link href={aboutUrl} style={link}>
-				<ThemedText>About Page</ThemedText>
+			<Link href={loginUrl} style={link}>
+				<ThemedText>Login Page</ThemedText>
 			</Link>
-			<Link href={contactUrl} style={link}>
-				<ThemedText>Contact Page</ThemedText>
+			<Link href={registerUrl} style={link}>
+				<ThemedText>Register Page</ThemedText>
 			</Link>
 		</ThemedView>
 	);
