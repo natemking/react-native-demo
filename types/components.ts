@@ -10,7 +10,7 @@ import type {
 
 type CompositionalComponent = { children: React.ReactNode };
 
-export type ThemedViewProps = ViewProps;
+export type ThemedViewProps = ViewProps & { safe?: boolean };
 
 export type ThemedCardProps = ViewProps & CompositionalComponent;
 
