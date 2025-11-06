@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export const LoginPage = (): React.JSX.Element => {
+export default function LoginPage(): React.JSX.Element {
 	const { container, title } = styles;
 	return (
 		<ThemedView style={container}>
@@ -34,5 +34,3 @@ export const LoginPage = (): React.JSX.Element => {
 		</ThemedView>
 	);
 };
-
-export default LoginPage

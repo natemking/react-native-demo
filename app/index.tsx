@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-const HomePage = (): React.JSX.Element => {
+export default function HomePage(): React.JSX.Element {
 	const { container, link, title } = styles;
 	return (
 		<ThemedView style={container}>
@@ -45,6 +45,4 @@ const HomePage = (): React.JSX.Element => {
 			</Link>
 		</ThemedView>
 	);
-};
-
-export default HomePage;
+}

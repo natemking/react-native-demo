@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export const RegisterPage = (): React.JSX.Element => {
+export default function RegisterPage(): React.JSX.Element {
     const { container, title } = styles;
     return (
         <ThemedView style={container}>
@@ -34,5 +34,3 @@ export const RegisterPage = (): React.JSX.Element => {
         </ThemedView>
     );
 };
-
-export default RegisterPage

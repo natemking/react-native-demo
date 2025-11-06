@@ -1,11 +1,9 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { useColorScheme } from 'react-native';
-import { colors } from 'styles/colors';
+import { useTheme } from 'hooks';
 
-const RootLayout = (): React.JSX.Element => {
-	const colorScheme = useColorScheme();
-	const theme = colors[colorScheme ?? 'light'];
+export default function RootLayout(): React.JSX.Element {
+	const theme = useTheme();
 	const { navBackground, title } = theme;
 
 	return (
@@ -17,10 +15,10 @@ const RootLayout = (): React.JSX.Element => {
 					headerTintColor: title,
 				}}
 			>
+                <Stack.Screen name='(auth)' options={{headerShown: false}}/>
 				<Stack.Screen name='index' options={{ title: 'Home' }} />
 			</Stack>
 		</>
 	);
 };
 
-export default RootLayout;
