@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'react-native';
 import { colors } from 'styles/colors';
 
-const RootLayout = () => {
+const RootLayout = (): React.JSX.Element => {
 	const colorScheme = useColorScheme();
 	const theme = colors[colorScheme ?? 'light'];
 	const { navBackground, title } = theme;

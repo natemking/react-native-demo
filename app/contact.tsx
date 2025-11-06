@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const ContactPage = () => {
+const ContactPage = (): React.JSX.Element => {
     const { container, link, title } = styles;
 
     return (

@@ -1,8 +1,9 @@
 import { Image, useColorScheme } from 'react-native';
 import type { ThemedLogoProps } from 'types';
 
-
-const ThemedLogo = ({ ...props }: ThemedLogoProps) => {
+export const ThemedLogo = ({
+	...props
+}: ThemedLogoProps): React.JSX.Element => {
 	const colorScheme = useColorScheme();
 
 	const logo =
@@ -10,9 +11,5 @@ const ThemedLogo = ({ ...props }: ThemedLogoProps) => {
 			? require('img/logo_dark.png')
 			: require('img/logo_light.png');
 
-	return (
-		<Image source={logo} {...props} />
-	);
+	return <Image source={logo} {...props} />;
 };
-
-export default ThemedLogo;

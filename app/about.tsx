@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-const AboutPage = () => {
+const AboutPage = (): React.JSX.Element => {
 	const colorScheme = useColorScheme();
 	const theme = colors[colorScheme ?? 'light'];
 	const { background } = theme;

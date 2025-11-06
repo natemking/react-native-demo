@@ -9,18 +9,19 @@ const styles = StyleSheet.create({
 	},
 });
 
-const ThemedCard = ({ style, ...props }: ThemedViewProps) => {
+export const ThemedCard = ({
+	style,
+	...props
+}: ThemedViewProps): React.JSX.Element => {
 	const theme = useTheme();
 
 	const { uiBackground } = theme;
-    const { card } = styles
+	const { card } = styles;
 
 	return (
-        <View 
-            style={[ { borderBlockColor: uiBackground}, card, style]}
-            {...props}
-        />
-    );
+		<View
+			style={[{ borderBlockColor: uiBackground }, card, style]}
+			{...props}
+		/>
+	);
 };
-
-export default ThemedCard;

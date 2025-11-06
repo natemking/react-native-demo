@@ -1,7 +1,7 @@
 import { StyleSheet, Text, Image } from 'react-native';
 import { Link } from 'expo-router';
-import ThemedView from 'components/ThemedView';
-import ThemedLogo from 'components/ThemedLogo';
+import { ThemedView } from 'components/ThemedView';
+import { ThemedLogo } from 'components/ThemedLogo';
 
 const styles = StyleSheet.create({
 	container: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-const HomePage = () => {
+const HomePage = (): React.JSX.Element => {
 	const { container, img, link, title } = styles;
 	return (
 		<ThemedView style={container}>
@@ -33,8 +33,12 @@ const HomePage = () => {
 				Reading List App
 			</Text>
 
-			<Link href='/about' style={link}>About Page</Link>
-			<Link href='/contact' style={link}>Contact Page</Link>
+			<Link href='/about' style={link}>
+				About Page
+			</Link>
+			<Link href='/contact' style={link}>
+				Contact Page
+			</Link>
 		</ThemedView>
 	);
 };
