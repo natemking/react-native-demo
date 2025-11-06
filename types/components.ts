@@ -1,11 +1,14 @@
 import type {
 	DimensionValue,
 	ImageProps,
+	PressableProps,
 	StyleProp,
 	TextProps,
 	ViewProps,
 	ViewStyle,
 } from 'react-native';
+
+type CompositionalComponent = {children: React.ReactNode}
 
 export type ThemedViewProps = ViewProps;
 
@@ -18,3 +21,5 @@ export type SpacerProps = {
 };
 
 export type ThemedTextProps = TextProps & { isTitle?: boolean };
+
+export type ThemedBtnProps = PressableProps & CompositionalComponent
