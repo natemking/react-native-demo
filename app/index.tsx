@@ -3,7 +3,7 @@ import { Spacer } from 'components/Spacer';
 import { ThemedLogo } from 'components/ThemedLogo';
 import { ThemedText } from 'components/ThemedText';
 import { ThemedView } from 'components/ThemedView';
-import { loginUrl, registerUrl } from 'lib/constants';
+import { loginUrl, profileUrl, registerUrl } from 'lib/constants';
 import { globalStyles } from 'styles';
 
 export default function HomePage(): React.JSX.Element {
@@ -27,6 +27,9 @@ export default function HomePage(): React.JSX.Element {
 			</Link>
 			<Link href={registerUrl} style={link}>
 				<ThemedText>Register Page</ThemedText>
+			</Link>
+			<Link href={profileUrl} style={link}>
+				<ThemedText>Profile Page</ThemedText>
 			</Link>
 		</ThemedView>
 	);
