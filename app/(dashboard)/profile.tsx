@@ -9,12 +9,12 @@ import { Text } from 'react-native';
 export default function ProfilePage() {
 	const { container, heading } = globalStyles;
 
-	const { logout } = useUser();
+	const { logout, user } = useUser();
 
 	return (
 		<ThemedView style={container}>
 			<ThemedText isTitle style={heading}>
-				Your Email
+				{user ? user.email : 'Please login'}
 			</ThemedText>
 			<Spacer />
 

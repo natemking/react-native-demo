@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { ID } from 'appwrite';
 import type { UserContextType, UserProviderProps } from 'types';
 import { account } from 'lib/appwrite';
@@ -9,6 +9,7 @@ export const UserProvider = ({
 	children,
 }: UserProviderProps): React.JSX.Element => {
 	const [user, setUser] = useState<UserContextType['user']>(null);
+    const [authChecked, setAuthChecked] = useState(false);
 
 	const login = async (email: string, password: string): Promise<void> => {
 		try {
@@ -30,12 +31,27 @@ export const UserProvider = ({
 	};
 
 	const logout = async (): Promise<void> => {
-        await account.deleteSession({sessionId: 'current'})
-        setUser(null)
-    };
+		await account.deleteSession({ sessionId: 'current' });
+		setUser(null);
+	};
+
+	useEffect(() => {
+		const getInitUserValue = async () => {
+			try {
+				const res = await account.get();
+				res.email ? setUser(res) : setUser(null);
+			} catch (error) {
+				setUser(null);
+			} finally {
+                setAuthChecked(true)
+            }
+		};
+
+		getInitUserValue();
+	}, []);
 
 	return (
-		<UserContext.Provider value={{ user, login, logout, register }}>
+		<UserContext.Provider value={{ user, authChecked, login, logout, register }}>
 			{children}
 		</UserContext.Provider>
 	);
