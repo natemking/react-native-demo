@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import type { UserContextType, UserProviderProps } from 'types';
 
+
 export const UserContext = createContext<UserContextType | null>(null);
 
 export const UserProvider = ({

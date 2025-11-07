@@ -10,7 +10,8 @@
 			"components/*": ["ui/components/*"],
             "types": ["types"],
             "hooks": ["lib/hooks"],
-            "context/*": ["context/*"]
+            "context/*": ["context/*"],
+            "lib/*": ["lib/*"]
 		}
 	}
 }
