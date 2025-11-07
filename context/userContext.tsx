@@ -8,7 +8,7 @@ export const UserProvider = ({
 }: UserProviderProps): React.JSX.Element => {
 	const [user, setUser] = useState<string | null>(null);
 
-	const register = async () => {
+	const register = async (email: string, password: string) => {
 		return;
 	};
 
@@ -16,7 +16,9 @@ export const UserProvider = ({
 		return;
 	};
 
-	const logout = async (email: string, password: string) => {};
+	const logout = async () => {
+
+    };
 
 	return (
 		<UserContext.Provider value={{ user, login, logout, register }}>
