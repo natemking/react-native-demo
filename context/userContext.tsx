@@ -16,7 +16,7 @@ export const UserProvider = ({
 			const res = await account.get();
 			setUser(res);
 		} catch (err) {
-			console.log(err);
+			console.error(err);
 		}
 	};
 
@@ -25,7 +25,7 @@ export const UserProvider = ({
 			await account.create({ userId: ID.unique(), email, password });
 			login(email, password);
 		} catch (err) {
-			console.log(err);
+			console.error(err);
 		}
 	};
 

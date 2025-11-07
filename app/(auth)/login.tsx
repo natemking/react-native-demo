@@ -16,11 +16,15 @@ export default function LoginPage(): React.JSX.Element {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-    const { user } = useUser()
+    const { login, user } = useUser()
 
-	const handleSubmit = () => {
-        console.log('user is:', user);
-		console.log('login form submitted', email, password);
+	const handleSubmit = async () => {
+		try {
+			await login(email, password);
+			console.log('current user is: ', user);
+		} catch (err) {
+			console.error(err);
+		}
 	};
 
 	return (
