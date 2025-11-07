@@ -9,7 +9,7 @@ import type {
 	ViewStyle,
 } from 'react-native';
 
-type CompositionalComponent = { children: React.ReactNode };
+export type CompositionalComponent = { children: React.ReactNode };
 
 export type ThemedViewProps = ViewProps & { safe?: boolean };
 

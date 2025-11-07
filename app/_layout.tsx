@@ -1,3 +1,4 @@
+import { UserProvider } from 'context/userContext';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useTheme } from 'hooks';
@@ -7,7 +8,7 @@ export default function RootLayout(): React.JSX.Element {
 	const { navBackground, title } = theme;
 
 	return (
-		<>
+		<UserProvider>
 			<StatusBar style='auto' />
 			<Stack
 				screenOptions={{
@@ -19,7 +20,7 @@ export default function RootLayout(): React.JSX.Element {
                 <Stack.Screen name='(dashboard)' options={{headerShown: false}}/>
 				<Stack.Screen name='index' options={{ title: 'Home' }} />
 			</Stack>
-		</>
+		</UserProvider>
 	);
 };
 

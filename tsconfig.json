@@ -9,7 +9,8 @@
 			"styles": ["ui/styles"],
 			"components/*": ["ui/components/*"],
             "types": ["types"],
-            "hooks": ["lib/hooks"]
+            "hooks": ["lib/hooks"],
+            "context/*": ["context/*"]
 		}
 	}
 }
