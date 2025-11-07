@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors } from 'ui/styles/colors';
 
-const { primary } = colors
+const { primary, warning } = colors
 
 export const globalStyles = StyleSheet.create({
 	container: {
@@ -39,4 +39,13 @@ export const globalStyles = StyleSheet.create({
 		borderRadius: 5,
 		padding: 20,
 	},
+    error: {
+        color: warning,
+        padding: 10,
+        backgroundColor: 'hsl(348 84% 87%)',
+        borderColor: warning,
+        borderWidth: 1,
+        borderRadius: 6,
+        marginHorizontal: 10
+    }
 });

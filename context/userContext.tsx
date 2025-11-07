@@ -10,26 +10,26 @@ export const UserProvider = ({
 }: UserProviderProps): React.JSX.Element => {
 	const [user, setUser] = useState<UserContextType['user']>(null);
 
-	const login = async (email: string, password: string) => {
+	const login = async (email: string, password: string): Promise<void> => {
 		try {
 			await account.createEmailPasswordSession({ email, password });
 			const res = await account.get();
 			setUser(res);
 		} catch (err) {
-			console.error(err);
+			throw new Error((err as Error).message);
 		}
 	};
 
-	const register = async (email: string, password: string) => {
+	const register = async (email: string, password: string): Promise<void> => {
 		try {
 			await account.create({ userId: ID.unique(), email, password });
 			login(email, password);
 		} catch (err) {
-			console.error(err);
+			throw new Error((err as Error).message);
 		}
 	};
 
-	const logout = async () => {};
+	const logout = async (): Promise<void> => {};
 
 	return (
 		<UserContext.Provider value={{ user, login, logout, register }}>

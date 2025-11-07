@@ -11,19 +11,23 @@ import { colors, globalStyles } from 'styles';
 import { useUser } from 'hooks';
 
 export default function LoginPage(): React.JSX.Element {
-	const { container, title } = globalStyles;
+	const { container, error: errStyles, title } = globalStyles;
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [error, setError] = useState<string | null>(null);
 
-    const { login, user } = useUser()
+	const { login, user } = useUser();
 
 	const handleSubmit = async () => {
+		setError(null);
+
 		try {
 			await login(email, password);
-			console.log('current user is: ', user);
 		} catch (err) {
-			console.error(err);
+			if (err instanceof Error) {
+                setError(err.message);
+			}
 		}
 	};
 
@@ -56,6 +60,13 @@ export default function LoginPage(): React.JSX.Element {
 						Login
 					</Text>
 				</ThemedBtn>
+
+				{error ? (
+					<>
+						<Spacer />
+						<Text style={errStyles}>{error}</Text>
+					</>
+				) : null}
 
 				<Spacer height={100} />
 				<Link href={registerUrl}>
