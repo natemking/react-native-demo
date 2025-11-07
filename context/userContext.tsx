@@ -29,7 +29,10 @@ export const UserProvider = ({
 		}
 	};
 
-	const logout = async (): Promise<void> => {};
+	const logout = async (): Promise<void> => {
+        await account.deleteSession({sessionId: 'current'})
+        setUser(null)
+    };
 
 	return (
 		<UserContext.Provider value={{ user, login, logout, register }}>
