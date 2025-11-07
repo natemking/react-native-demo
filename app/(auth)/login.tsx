@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Text } from 'react-native';
 import { Link } from 'expo-router';
 import { Spacer } from 'components/Spacer';
@@ -6,14 +7,17 @@ import { ThemedText } from 'components/ThemedText';
 import { ThemedView } from 'components/ThemedView';
 import { registerUrl } from 'lib/constants';
 import { colors, globalStyles } from 'styles';
-
+import { ThemedTextInput } from 'components/ThemedTextInput';
 
 export default function LoginPage(): React.JSX.Element {
 	const { container, title } = globalStyles;
 
-    const handleSubmit = () => {
-        console.log('login form submitted');
-    }
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+	const handleSubmit = () => {
+		console.log('login form submitted', email, password);
+	};
 
 	return (
 		<ThemedView style={container}>
@@ -22,12 +26,24 @@ export default function LoginPage(): React.JSX.Element {
 				Login to Your Account
 			</ThemedText>
 
-			<ThemedBtn 
-                onPress={handleSubmit}
-            >
-				<Text style={{ color: colors.primaryForeground }}>
-                    Login
-                </Text>
+			<ThemedTextInput
+                keyboardType='email-address'
+                onChangeText={setEmail}
+				placeholder='Email'
+				style={{ width: '80%', marginBottom: 20 }}
+                value={email}
+			/>
+
+			<ThemedTextInput
+                onChangeText={setPassword}
+				placeholder='Password'
+                secureTextEntry
+				style={{ width: '80%', marginBottom: 20 }}
+                value={password}
+			/>
+
+			<ThemedBtn onPress={handleSubmit}>
+				<Text style={{ color: colors.primaryForeground }}>Login</Text>
 			</ThemedBtn>
 
 			<Spacer height={100} />
