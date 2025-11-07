@@ -3,6 +3,7 @@ import type {
 	ImageProps,
 	PressableProps,
 	StyleProp,
+	TextInputProps,
 	TextProps,
 	ViewProps,
 	ViewStyle,
@@ -25,3 +26,5 @@ export type SpacerProps = {
 export type ThemedTextProps = TextProps & CompositionalComponent & { isTitle?: boolean };
 
 export type ThemedBtnProps = PressableProps & CompositionalComponent;
+
+export type ThemeTextInputProps = TextInputProps
