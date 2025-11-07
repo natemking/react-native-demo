@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Keyboard, Text, TouchableWithoutFeedback } from 'react-native';
-import { Link, useRouter } from 'expo-router';
+import { Link } from 'expo-router';
 import { Spacer } from 'components/Spacer';
 import { ThemedBtn } from 'components/ThemedBtn';
 import { ThemedText } from 'components/ThemedText';
 import { ThemedTextInput } from 'components/ThemedTextInput';
 import { ThemedView } from 'components/ThemedView';
-import { profileUrl, registerUrl } from 'lib/constants';
+import { registerUrl } from 'lib/constants';
 import { colors, globalStyles } from 'styles';
 import { useUser } from 'hooks';
 
@@ -19,14 +19,11 @@ export default function LoginPage(): React.JSX.Element {
 
 	const { login } = useUser();
 
-    const router = useRouter()
-
 	const handleSubmit = async () => {
 		setError(null);
 
 		try {
 			await login(email, password);
-            router.push(profileUrl);
 		} catch (err) {
 			if (err instanceof Error) {
                 setError(err.message);
