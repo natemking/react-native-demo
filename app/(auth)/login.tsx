@@ -4,10 +4,11 @@ import { Link } from 'expo-router';
 import { Spacer } from 'components/Spacer';
 import { ThemedBtn } from 'components/ThemedBtn';
 import { ThemedText } from 'components/ThemedText';
+import { ThemedTextInput } from 'components/ThemedTextInput';
 import { ThemedView } from 'components/ThemedView';
 import { registerUrl } from 'lib/constants';
 import { colors, globalStyles } from 'styles';
-import { ThemedTextInput } from 'components/ThemedTextInput';
+import { useUser } from 'hooks';
 
 export default function LoginPage(): React.JSX.Element {
 	const { container, title } = globalStyles;
@@ -15,7 +16,10 @@ export default function LoginPage(): React.JSX.Element {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+    const { user } = useUser()
+
 	const handleSubmit = () => {
+        console.log('user is:', user);
 		console.log('login form submitted', email, password);
 	};
 
