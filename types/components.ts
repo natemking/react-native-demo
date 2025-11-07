@@ -28,3 +28,5 @@ export type ThemedTextProps = TextProps & CompositionalComponent & { isTitle?: b
 export type ThemedBtnProps = PressableProps & CompositionalComponent;
 
 export type ThemeTextInputProps = TextInputProps
+
+export type UserOnlyProps = CompositionalComponent
