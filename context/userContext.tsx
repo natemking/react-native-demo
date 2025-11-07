@@ -3,7 +3,9 @@ import type { UserContextType, UserProviderProps } from 'types';
 
 export const UserContext = createContext<UserContextType | null>(null);
 
-export const UserProvider = ({ children }: UserProviderProps) => {
+export const UserProvider = ({
+	children,
+}: UserProviderProps): React.JSX.Element => {
 	const [user, setUser] = useState<string | null>(null);
 
 	const register = async () => {
