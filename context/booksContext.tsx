@@ -1,12 +1,12 @@
 import { createContext, useEffect, useState } from 'react';
 import { ID, Models, Permission, Query, Role } from 'appwrite';
-import { databases, tablesDB } from 'lib/appwrite';
 import type {
-	BookBaseData,
+    BookBaseData,
 	BookData,
 	BooksContextType,
 	BooksProviderProps,
 } from 'types';
+import { tablesDB } from 'lib/appwrite';
 import { useUser } from 'hooks';
 
 const db = process.env.EXPO_PUBLIC_APPWRITE_DB_ID ?? '';
@@ -57,6 +57,7 @@ export const BooksProvider = ({ children }: BooksProviderProps) => {
 				],
 			});
 
+            fetchBooks()
 			return res;
 		} catch (err) {
 			throw new Error(

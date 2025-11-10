@@ -38,7 +38,18 @@ export const globalStyles = StyleSheet.create({
 	card: {
 		borderRadius: 5,
 		padding: 20,
+        width: '90%',
+        marginHorizontal: '5%',
+        marginVertical: 10,
+        paddingLeft: 14,
+        borderLeftColor: primary,
+        borderLeftWidth: 4
 	},
+    cardTitle: {
+        fontSize: 20,
+        fontWeight: 700,
+        marginBottom: 10
+    },
 	error: {
 		color: warning,
 		padding: 10,
@@ -61,4 +72,7 @@ export const globalStyles = StyleSheet.create({
 		alignSelf: 'stretch',
 		marginHorizontal: 40,
 	},
+    list: {
+        marginTop: 40
+    }
 });
