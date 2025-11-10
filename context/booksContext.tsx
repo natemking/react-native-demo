@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { ID, Models, Permission, Query, Role } from 'appwrite';
 import type {
-    BookBaseData,
+	BookBaseData,
 	BookData,
 	BooksContextType,
 	BooksProviderProps,
@@ -32,14 +32,24 @@ export const BooksProvider = ({ children }: BooksProviderProps) => {
 			setBooks(res.rows);
 		} catch (err) {
 			throw new Error(
-				err instanceof Error ? err.message : 'fetchBook Error'
+				err instanceof Error ? err.message : 'fetchBooks Error'
 			);
 		}
 	};
 
-	const fetchBookById = async (id: string) => {
+	const fetchBookById = async (id: string): Promise<BookData> => {
 		try {
-		} catch (error) {}
+			const res = await tablesDB.getRow<BookData>({
+				...baseReqValues,
+				rowId: id,
+			});
+
+			return res;
+		} catch (err) {
+			throw new Error(
+				err instanceof Error ? err.message : 'fetchBookById Error'
+			);
+		}
 	};
 
 	const createBook = async (
@@ -57,9 +67,9 @@ export const BooksProvider = ({ children }: BooksProviderProps) => {
 				],
 			});
 
-            if (res) {
-                setBooks(prev => [...prev, res])
-            }
+			if (res) {
+				setBooks((prev) => [...prev, res]);
+			}
 			return res;
 		} catch (err) {
 			throw new Error(

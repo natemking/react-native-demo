@@ -25,7 +25,7 @@ export type BookData = BookBaseData & Models.DefaultRow & {
 export type BooksContextType = {
 	books: BookData[];
 	fetchBooks: () => Promise<void>;
-	fetchBookById: (id: string) => Promise<void>;
+	fetchBookById: (id: string) => Promise<BookData>;
 	createBook: (data: BookBaseData) => Promise<Models.DefaultRow>;
 	deleteBookById: (id: string) => Promise<void>;
 };
