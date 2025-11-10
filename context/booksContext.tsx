@@ -1,6 +1,9 @@
 import { createContext, useState } from 'react';
 import type { BookData, BooksContextType, BooksProviderProps } from 'types';
 
+const db = process.env.EXPO_PUBLIC_APPWRITE_DB_ID
+const booksTable = process.env.EXPO_PUBLIC_APPWRITE_TABLE_ID
+
 export const BooksContext = createContext<BooksContextType | null>(null);
 
 export const BooksProvider = ({ children }: BooksProviderProps ) => {
