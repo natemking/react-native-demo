@@ -1,3 +1,4 @@
+import { BooksProvider } from 'context/booksContext';
 import { UserProvider } from 'context/userContext';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -9,18 +10,25 @@ export default function RootLayout(): React.JSX.Element {
 
 	return (
 		<UserProvider>
-			<StatusBar style='auto' />
-			<Stack
-				screenOptions={{
-					headerStyle: { backgroundColor: navBackground },
-					headerTintColor: title,
-				}}
-			>
-                <Stack.Screen name='(auth)' options={{headerShown: false}}/>
-                <Stack.Screen name='(dashboard)' options={{headerShown: false}}/>
-				<Stack.Screen name='index' options={{ title: 'Home' }} />
-			</Stack>
+			<BooksProvider>
+				<StatusBar style='auto' />
+				<Stack
+					screenOptions={{
+						headerStyle: { backgroundColor: navBackground },
+						headerTintColor: title,
+					}}
+				>
+					<Stack.Screen
+						name='(auth)'
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name='(dashboard)'
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen name='index' options={{ title: 'Home' }} />
+				</Stack>
+			</BooksProvider>
 		</UserProvider>
 	);
-};
-
+}
