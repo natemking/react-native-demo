@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BooksContextType,  } from 'types';
+import type { BooksContextType,  } from 'types';
 import { BooksContext } from 'context/booksContext';
 
 export const useBooks = (): BooksContextType => {

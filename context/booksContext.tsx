@@ -7,7 +7,7 @@ import type {
 	BooksProviderProps,
 } from 'types';
 import { tablesDB } from 'lib/appwrite';
-import { useUser } from 'hooks';
+import { useUser } from 'lib/hooks/useUser'; // import from lib to stop circular dep
 
 const db = process.env.EXPO_PUBLIC_APPWRITE_DB_ID ?? '';
 const booksTable = process.env.EXPO_PUBLIC_APPWRITE_TABLE_ID ?? '';
@@ -46,7 +46,7 @@ export const BooksProvider = ({ children }: BooksProviderProps) => {
 		data: BookBaseData
 	): Promise<Models.DefaultRow> => {
 		try {
-			const res = await tablesDB.createRow({
+			const res = await tablesDB.createRow<BookData>({
 				...baseReqValues,
 				rowId: ID.unique(),
 				data: { ...data, userId: user!.$id },
@@ -57,7 +57,9 @@ export const BooksProvider = ({ children }: BooksProviderProps) => {
 				],
 			});
 
-            fetchBooks()
+            if (res) {
+                setBooks(prev => [...prev, res])
+            }
 			return res;
 		} catch (err) {
 			throw new Error(
