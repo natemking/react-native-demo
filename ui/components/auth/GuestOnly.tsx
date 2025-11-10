@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { Text } from 'react-native';
 import { useRouter } from 'expo-router';
 import type { UserOnlyProps } from 'types';
+import { ThemedLoader } from 'components/ThemedLoader';
 import { useUser } from 'hooks';
 import { profileUrl } from 'lib/constants';
 
@@ -17,7 +17,7 @@ export const GuestOnly = ({ children }: UserOnlyProps): React.JSX.Element => {
 
     if (!authChecked || user) {
         return (
-            <Text>Loading...</Text>
+            <ThemedLoader />
         )
     }
 

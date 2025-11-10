@@ -3,7 +3,7 @@ import { ThemedView } from 'components/ThemedView';
 import { useTheme } from 'hooks';
 import { globalStyles } from 'styles';
 
-export default function ThemedLoader() {
+export function ThemedLoader() {
 	const theme = useTheme();
 
 	const { text } = theme;
