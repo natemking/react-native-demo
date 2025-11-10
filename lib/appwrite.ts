@@ -1,4 +1,10 @@
-import { Account, Avatars, Client, Databases, Realtime, TablesDB } from 'appwrite';
+import {
+	Account,
+	Avatars,
+	Client,
+	Databases,
+	TablesDB,
+} from 'appwrite';
 
 export const client = new Client()
 	.setProject(process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID ?? '')
@@ -6,6 +12,5 @@ export const client = new Client()
 
 export const account = new Account(client);
 export const avatars = new Avatars(client);
-export const databases = new Databases(client)
-export const tablesDB = new TablesDB(client)
-export const realtime = new Realtime(client)
+export const databases = new Databases(client);
+export const tablesDB = new TablesDB(client);
