@@ -17,18 +17,13 @@ export type BookBaseData = {
 	description: string;
 };
 
-export type BookData = BookBaseData & {
+export type BookData = BookBaseData & Models.DefaultRow & { 
 	userId: string;
 };
 
-export type BookModel = BookData & {
-	id: string;
-	createdAt: Date;
-	updatedAt: Date;
-};
 
 export type BooksContextType = {
-	books: BookModel[];
+	books: BookData[];
 	fetchBooks: () => Promise<void>;
 	fetchBookById: (id: string) => Promise<void>;
 	createBook: (data: BookBaseData) => Promise<Models.DefaultRow>;
