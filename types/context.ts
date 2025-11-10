@@ -11,24 +11,27 @@ export type UserContextType = {
 
 export type UserProviderProps = CompositionalComponent;
 
-export type BookData = {
+export type BookBaseData = {
 	title: string;
 	author: string;
 	description: string;
+};
+
+export type BookData = BookBaseData & {
 	userId: string;
 };
 
-export type BookType = BookData & {
+export type BookModel = BookData & {
 	id: string;
 	createdAt: Date;
 	updatedAt: Date;
 };
 
 export type BooksContextType = {
-	books: BookType[];
+	books: BookModel[];
 	fetchBooks: () => Promise<void>;
 	fetchBookById: (id: string) => Promise<void>;
-    createBook: (data: BookData) => Promise<void>;
-    deleteBookById: (id: string) => Promise<void>;
+	createBook: (data: BookBaseData) => Promise<Models.DefaultRow>;
+	deleteBookById: (id: string) => Promise<void>;
 };
 export type BooksProviderProps = CompositionalComponent;
