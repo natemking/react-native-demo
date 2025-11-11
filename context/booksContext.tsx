@@ -80,7 +80,17 @@ export const BooksProvider = ({ children }: BooksProviderProps) => {
 
 	const deleteBookById = async (id: string) => {
 		try {
-		} catch (error) {}
+            await tablesDB.deleteRow({
+                ...baseReqValues,
+                rowId: id
+            })
+
+            setBooks(prev => prev.filter(book => book.$id !== id))
+		} catch (err) {
+			throw new Error(
+				err instanceof Error ? err.message : 'deleteBook Error'
+			);
+		}
 	};
 
 	useEffect(() => {

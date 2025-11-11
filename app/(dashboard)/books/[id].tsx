@@ -1,32 +1,43 @@
 import { useEffect, useState } from 'react';
-import { useLocalSearchParams } from 'expo-router';
+import { Text } from 'react-native';
+import { router, useLocalSearchParams } from 'expo-router';
 import type { BookData } from 'types';
 import { Spacer } from 'components/Spacer';
+import { ThemedBtn } from 'components/ThemedBtn';
 import { ThemedCard } from 'components/ThemedCard';
 import { ThemedLoader } from 'components/ThemedLoader';
 import { ThemedText } from 'components/ThemedText';
 import { ThemedView } from 'components/ThemedView';
+import { booksUrl } from 'lib/constants';
 import { useBooks } from 'hooks';
-import { globalStyles } from 'styles';
+import { colors, globalStyles } from 'styles';
 
 export default function BookDetailsPage() {
 	const { card, container, title } = globalStyles;
 	const { id } = useLocalSearchParams();
 
-	const { fetchBookById } = useBooks();
+	const { deleteBookById, fetchBookById } = useBooks();
 
 	const [book, setBook] = useState<BookData | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
+
+	const handleDelete = () => {
+		if (id && typeof id === 'string') {
+			deleteBookById(id);
+			setBook(null);
+			router.replace(booksUrl);
+		}
+	};
 
 	useEffect(() => {
 		const loadBook = async (id: string): Promise<void> => {
 			const res = await fetchBookById(id);
 			setBook(res);
-            setIsLoading(false)
+			setIsLoading(false);
 		};
 
 		if (id && typeof id === 'string') {
-            setIsLoading(true)
+			setIsLoading(true);
 			loadBook(id);
 		}
 	}, [id]);
@@ -47,6 +58,25 @@ export default function BookDetailsPage() {
 
 				<ThemedText>{book?.description}</ThemedText>
 			</ThemedCard>
+
+			<ThemedBtn
+				onPress={handleDelete}
+				style={{
+					marginTop: 40,
+					backgroundColor: colors.warning,
+					width: 200,
+					alignSelf: 'center',
+				}}
+			>
+				<Text
+					style={{
+						color: colors.primaryForeground,
+						textAlign: 'center',
+					}}
+				>
+					Delete Book
+				</Text>
+			</ThemedBtn>
 		</ThemedView>
 	);
 }
