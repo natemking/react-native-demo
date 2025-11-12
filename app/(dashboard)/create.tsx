@@ -1,5 +1,6 @@
 import { Keyboard, Text, TouchableWithoutFeedback } from 'react-native';
 import React, { useState } from 'react';
+import type { BooksContextType } from 'types';
 import { useRouter } from 'expo-router';
 import { Spacer } from 'components/Spacer';
 import { ThemedBtn } from 'components/ThemedBtn';
@@ -26,7 +27,7 @@ export default function CreatePage() {
 
 		try {
 			setLoading(true);
-			const bookData = {
+			const bookData: Parameters<BooksContextType['createBook']>[0] = {
 				title,
 				author,
 				description,

@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import { ID, Models, Permission, Query, Role } from 'appwrite';
 import type {
-	BookBaseData,
 	BookData,
 	BooksContextType,
 	BooksProviderProps,
@@ -53,7 +52,7 @@ export const BooksProvider = ({ children }: BooksProviderProps) => {
 	};
 
 	const createBook = async (
-		data: BookBaseData
+		data: Parameters<BooksContextType['createBook']>[0]
 	): Promise<Models.DefaultRow> => {
 		try {
 			const res = await tablesDB.createRow<BookData>({
